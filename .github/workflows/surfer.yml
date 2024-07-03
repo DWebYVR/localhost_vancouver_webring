@@ -5,7 +5,6 @@ name: Deploy website folder contents to Cloudron Surfer
 on:
   push:
     branches: ["main"]
-jobs:
 
   steps:
   - uses: actions/checkout@v3
