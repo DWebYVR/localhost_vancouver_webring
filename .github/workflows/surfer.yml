@@ -5,16 +5,14 @@ name: Deploy website folder contents to Cloudron Surfer
 on:
   push:
     branches: ["main"]
-#    paths: # theoretically we can set this up, but also only for main branch
-#      - 'website/**'
-
-# Allows you to run this workflow manually from the Actions tab
-#workflow_dispatch:
-
 jobs:
-  uses: addnab/docker-run-action@v3
-  with:
-    image: git.9wd.eu/9wd/surfer-action:latest
-    run: |
-      surfer --version
-      surfer put --token ${{ secrets.SURFER_TOKEN }} --server https://localhost.dwebyvr.org website/* /
+
+  steps:
+  - name: Checkout 
+    uses: actions/checkout@v3 # Required to mount the Github Workspace to a volume 
+  - uses: addnab/docker-run-action@v3 # https://github.com/addnab/docker-run-action
+    with:
+      image: git.9wd.eu/9wd/surfer-action:latest
+      run: |
+        surfer --version
+        surfer put --token ${{ secrets.SURFER_TOKEN }} --server https://localhost.dwebyvr.org website/* /
