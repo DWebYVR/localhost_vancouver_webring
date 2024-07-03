@@ -8,8 +8,8 @@ on:
 #    paths: # theoretically we can set this up, but also only for main branch
 #      - 'website/**'
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+# Allows you to run this workflow manually from the Actions tab
+#workflow_dispatch:
 
 jobs:
   uses: addnab/docker-run-action@v3
