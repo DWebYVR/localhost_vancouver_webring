@@ -6,13 +6,13 @@ on:
   push:
     branches: ["main"]
 
-  jobs: 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Run Surfer Action
-      uses: addnab/docker-run-action@v3
-      with:
-        image: git.9wd.eu/9wd/surfer-action:latest
-        run: |
-          surfer --version
-          surfer put --token ${{ secrets.SURFER_TOKEN }} --server https://localhost.dwebyvr.org website/* /
+jobs: 
+  steps:
+  - uses: actions/checkout@v3
+  - name: Run Surfer Action
+    uses: addnab/docker-run-action@v3
+    with:
+      image: git.9wd.eu/9wd/surfer-action:latest
+      run: |
+        surfer --version
+        surfer put --token ${{ secrets.SURFER_TOKEN }} --server https://localhost.dwebyvr.org website/* /
