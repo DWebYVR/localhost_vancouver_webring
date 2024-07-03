@@ -8,7 +8,8 @@ on:
 
 jobs: 
   steps:
-  - uses: actions/checkout@v3
+  - name: Checkout
+    uses: actions/checkout@v3
   - name: Run Surfer Action
     uses: addnab/docker-run-action@v3
     with:
