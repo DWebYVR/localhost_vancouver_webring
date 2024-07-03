@@ -7,13 +7,15 @@ on:
     branches: ["main"]
 
 jobs: 
-  steps:
-  - name: Checkout
-    uses: actions/checkout@v3
-  - name: Run Surfer Action
-    uses: addnab/docker-run-action@v3
-    with:
-      image: git.9wd.eu/9wd/surfer-action:latest
-      run: |
-        surfer --version
-        surfer put --token ${{ secrets.SURFER_TOKEN }} --server https://localhost.dwebyvr.org website/* /
+  surfer-put:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Run Surfer Action
+      uses: addnab/docker-run-action@v3
+      with:
+        image: git.9wd.eu/9wd/surfer-action:latest
+        run: |
+          surfer --version
+          surfer put --token ${{ secrets.SURFER_TOKEN }} --server https://localhost.dwebyvr.org website/* /
