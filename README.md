@@ -8,6 +8,6 @@ Lieu's config
 
 ## Website
 
-Deployed to [localhost.dwebyvr.org](https://localhost.dwebyvr.org)
+Deployed to [localhost.dwebyvr.org](https://localhost.dwebvancouver.org)
 
 Please add a PR to include yourself / your links in the website/index.html page, which will be the source links for crawling.
