@@ -1,0 +1,26 @@
+[build]
+# Set the Dockerfile path
+dockerfilePath = "lieu/Dockerfile"
+
+[deploy]
+# Set the command to start the application
+startCommand = "./lieu host"
+
+# Number of replicas to run
+numReplicas = 1
+
+# Restart policy
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+# Set the healthcheck path if needed
+# healthcheckPath = "/health"
+# healthcheckTimeout = 300
+
+[env]
+# Environment variables
+PORT = "10001"
+
+# Environment specific overrides
+[environments.production.deploy]
+startCommand = "./lieu host"
