@@ -1,0 +1,12 @@
+{
+    "build": {
+        "dockerfile": "lieu/Dockerfile"
+    },
+    "deploy": {
+        "startCommand": "./lieu host",
+        "replicas": 1,
+        "healthcheckPath": "/health",
+        "restartPolicy": "On Failure",
+        "maxRestartRetries": 10
+    }
+}
