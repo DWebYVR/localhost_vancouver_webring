@@ -1,0 +1,16 @@
+.xml
+.rss
+.jpg
+.png
+.gif
+.avi
+.webm
+.mp4
+.ogg
+.mp3
+.zip
+.exe
+.txt
+.asc
+.key
+.csv
