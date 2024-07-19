@@ -1,6 +1,6 @@
 [general]
-name = "Sweet Webring"
-tagline = "the search for the new—endless"
+name = "LOCALHOST DWeb Vancouver"
+tagline = "Vancouver community search engine"
 placeholder = "Search"
 # used by the precrawl command and linked to in /about route
 url = "https://localhost.dwebvancouver.org"
