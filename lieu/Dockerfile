@@ -16,6 +16,9 @@ COPY . .
 # Build the Go application with FTS5 tag
 RUN go build --tags "fts5" -o lieu
 
+# Create the data directory
+RUN mkdir -p data
+
 # Run the necessary commands to scrape links, crawl, and create the database
 RUN ./lieu precrawl > data/webring.txt && \
     ./lieu crawl > data/crawled.txt && \

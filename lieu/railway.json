@@ -8,5 +8,8 @@
         "healthcheckPath": "/health",
         "restartPolicy": "On Failure",
         "maxRestartRetries": 10
+    },
+    "env": {
+        "PORT": "10001"
     }
 }
