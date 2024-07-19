@@ -1,20 +1,10 @@
 [general]
-name = "LOCALHOST Vancouver Webring"
+name = "Sweet Webring"
+tagline = "the search for the new—endless"
+placeholder = "Search"
 # used by the precrawl command and linked to in /about route
-url = "https://localhost.dwebyvr.org"
-# used by the precrawl command to populate the Crawler.Webring file;
-# takes simple html selectors. might be a bit wonky :)
-webringSelector = "li > a[href]:first-of-type"
-# this should mean that nested <li> works still too
+url = "https://localhost.dwebvancouver.org"
 port = 10001
-
-[theme]
-# colors specified in hex (or valid css names) which determine the theme of the lieu instance
-# NOTE: If (and only if) all three values are set lieu uses those to generate the file html/assets/theme.css at startup.
-# You can also write directly to that file istead of adding this section to your configuration file
-foreground = "#ffffff"
-background = "#000000"
-links = "#ffffff"
 
 [data]
 # the source file should contain the crawl command's output 

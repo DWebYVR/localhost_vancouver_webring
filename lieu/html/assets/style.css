@@ -1,0 +1,277 @@
+/* BASE OR CONFIG */
+
+:root {
+    --primary: #fefefe;
+    --secondary: #000;
+    --link: #fefefe;
+    /* alt colorscheme: 1 */
+    /* --primary: red; */
+    /* --secondary: #fefefe; */
+    /* alt colorscheme: 2 */
+    /* --primary: #F35363; */
+    /* --secondary: black; */
+}
+
+/* Font-size 62.5% allows using rems as pixels. For ex: 1.6rem = 16px. Way es */
+html {
+    font-size: 62.5%;
+}
+
+/* defaults for old browsers */
+body {
+    color: white; 
+    background: black;
+}
+
+input[type="search"] {
+    color: black;
+    border: black solid 0.1rem;
+}
+/* end oldie defaults */
+
+body {
+    font-family: "Inter UI", sans-serif;
+    background: var(--secondary);
+    color: var(--primary);
+    font-size: 1.6rem;
+}
+
+a {
+    cursor: pointer;
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 0.1rem solid var(--link);
+    word-wrap: break-word;
+}
+
+a:hover {
+    border-bottom-style: dotted;
+}
+
+p {
+    hyphens: auto;
+}
+
+h1 {
+    font-family: "Noto Serif";
+    font-weight: 400;
+    font-size: 4.8rem;
+    line-height: 1;
+}
+
+h2 {
+    font-family: "Noto Serif";
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+input[type="search"] {
+    font-size: 1.6rem;
+    border-radius: 0.16rem;
+    padding: 0.8rem 0.8rem 0.8rem 1.2rem;
+    border: 0;
+    color: var(--primary);
+    background: var(--secondary);
+    border: var(--primary) solid 0.1rem;
+    width: 100%;
+    max-width: 30rem;
+}
+
+ul {
+    padding: 0;
+}
+
+
+/* COMPOSITION */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+main {
+    height: calc(100vh - 10rem);
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+}
+
+nav li {
+    display: inline-block;
+}
+
+
+/* BLOCKS */
+
+/* Block elements are grouped by "family" */
+
+.header-home {
+    padding: 2.1rem 3.2rem;
+}
+
+.header-home_link, .header-home_link:hover {
+    font-family: "Noto Serif";
+    font-weight: 400;
+    font-size: 2.4rem;
+    border-bottom: none;
+}
+
+.header-home_navigation *+* {
+    margin-left: 1.6rem;
+}
+
+
+/* Search block */
+
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.search__input {
+    display: flex;
+    width: 100%;
+}
+
+.search__button {
+    cursor: pointer;
+    border: 0;
+    transition: opacity 150ms;
+    height: 4rem;
+    min-width: 4.8rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary);
+    margin: 0 5px;
+}
+
+.search__button svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Search Results */
+.result-nav-list {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    grid-column-gap: 0.75rem;
+    padding-bottom: 0;
+    font-size: 1.8rem;
+}
+
+.result__current {
+    /* font-weight: bold; */
+    color: var(--link);
+    text-decoration-line: underline;
+}
+
+/* Entries */
+
+.entry {
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -moz-page-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+}
+
+.entry>*+* {
+    margin-top: 0.8rem;
+}
+
+.entry__link {
+    font-style: italic;
+}
+
+.entry__text {
+    color: var(--primary);
+    line-height: 1.2;
+}
+
+/* UTILITY CLASSES */
+
+.italic-text {
+    font-style: italic;
+}
+
+.flow>*+* {
+    margin-top: 1.6rem;
+}
+
+.flow2>*+* {
+    margin-top: calc(1.6rem * 2);
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.grid-items-center {
+    display: grid;
+    place-items: center;
+}
+
+.width-63ch {
+    max-width: 63ch;
+}
+
+.width-126ch {
+    max-width: 126ch;
+}
+
+.two-columns {
+    columns: 2;
+}
+
+@media (max-width: 700px) {
+    .two-columns {
+        columns: 1;
+    }
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.translateY-75 {
+    transform: translateY(-75%);
+}
+
+@import url('inter-ui-web/inter-ui.css');
+
+
+@font-face {
+    font-family: 'Noto Serif';
+    src: url('NotoSerif.woff2') format('woff2'), url("NotoSerif-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Serif';
+    src: url('NotoSerif-Italic.woff2') format('woff2'), url("NotoSerif-Italic.ttf") format('ttf');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Serif';
+    src: url('NotoSerif-Bold.woff2') format('woff2'), url("NotoSerif-Bold.ttf") format('ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
