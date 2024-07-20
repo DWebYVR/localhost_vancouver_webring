@@ -1,75 +1,263 @@
 <html>
-    <head>
-        <title>LOCALHOST DWeb Vancouver Webring</title>
-    </head>
-    <body>
-        <h1>LOCALHOST DWeb Vancouver Webring</h1>
 
-        <p>This is a webring that powers a community search engine powered by <a href="https://cblgh.org/lieu/">Lieu</a>. Visit the <a href="https://github.com/DWebYVR/localhost_vancouver_webring">repo</a> to add yourself to this page.</p>
+<head>
+	<title>LOCALHOST DWeb Vancouver Webring</title>
+	<!-- CSS from https://codepen.io/wheatup/pen/GRyxmRb -->
+	<style type="text/css">
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
 
-        <h2>Search</h2>
+		ul,
+		ol {
+			list-style: none;
+			font-family: 'Grape Nuts', cursive;
+			font-size: 2.4rem;
+			color: midnightblue;
+		}
 
-        <form method="GET" action="https://search.dwebvancouver.org">
-	        <label for="search">Community Search Engine</label>
-	        <input type="search" minlength="1" required="" name="q" placeholder="Your search query here" id="search">
-	        <button type="submit">Let's go!</button>
-        </form>
+		html {
+			font-size: 62.5%;
 
-        <h2>DWeb Vancouver Resources</h2>
-        <ul>
-            <li><a href="https://dwebyvr.org">DWebYVR Wiki</a>: main website for DWebYVR. Public MediaWiki install.</li>
-            <li><a href="https://writing.dwebyvr.org">DWebYVR Blog</a>: blog and email newsletter, Ghost-powered. Several subsites</li>
-            <li><a href="https://writing.dwebyvr.org/localhost/">LOCALHOST Vancouver</a>: week-long set of local events alongside IETF120</li>
-            <li><a href="https://lu.ma/dwebyvr">DWebYVR Calendar</a>: Luma-powered calendar for events</li>
-            
-        </ul>
+			@media only screen and (max-width: 624px) {
+				font-size: 50%;
+			}
 
-        <h2>DWeb Vancouver Members</h2>
-        <ul>
-            <li><a href="https://bmannconsulting.com">Boris Mann</a>: personal blog and digital garden</li>
-            <li><a href="https://github.com/daffl">David Luecke @ Github</a>
-            <ul>
-                <li><a href="https://feathersjs.com/">FeathersJS</a>: open source API and Real-time
-                    Application Framework</li>
-                <li><a href="https://feathers.cloud/">Feathers Cloud</a>: commercial hosting for FeathersJS</li>
+			body {
+				font-size: 1.6rem;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)), url(https://assets.codepen.io/2509128/paper.jpeg);
+			}
+		}
 
-            </ul>
-            </li>
-            <li><a href="https://www.nicktsan.com/">Nicholas Tsang</a>: personal portfolio website and blog.</li>
-            <ul>
-                <li><a href="https://github.com/nicktsan">Nicholas' Github profile.</a></li>
-            </ul>
+		h1,
+		h2,
+		h3 {
+			margin-top: 2rem;
+			font-family: cursive;
+			color: saddlebrown;
+			position: relative;
+			display: flex;
+			align-items: center;
+			font-size: 4rem;
 
-            <li><a href="https://www.kriskrug.co">Kris Krüg</a>: personal website and blog.</li>
-            <ul>
-                <li><a href="https://www.futureproofcreatives.com">KK's AI workshops & trainings.</a></li>
-            </ul>
-            <li><a href="https://grahamfleming.com">Graham Fleming</a>: personal website and links</li>
-        </ul>
+			&::before,
+			&::after {
+				content: '';
+				display: block;
+				width: 5rem;
+				height: 2px;
+				background-color: currentColor;
+				margin: 0 1rem;
+			}
+		}
 
-        <h2>Vancouver Community</h2>
+		h2 {
+			font-size: 3.2rem;
+		}
 
-        <ul>
-            <li><a href="https://lu.ma/vancouver">Luma Vancouver Calendar</a>: aggregate calendar of events in Vancouver</li>
-            <li><a href="https://z-space.ca">Z-Space</a>: a shared studio space at 505 Hamilton managed by the Z-Space Arts and Technology Society</li>
-            <li><a href="https://lu.ma/future-proof?tag=ai%20meetup">Vancouver AI Community Meetups calendar.</a></li>
+		h3 {
+			font-size: 2.8rem;
+		}
 
-        </ul>
+		ul:not(ul ul) {
+			padding: 2rem;
+			padding-bottom: 4rem;
+			display: grid;
+			grid-template-columns: max-content;
+			z-index: 1;
+			position: relative;
+			perspective: 50vw;
+			transform-style: preserve-3d;
 
-        <h1>Projects</h1>
+			.done {
+				text-decoration: line-through;
+			}
 
-        <h2>LOCALHOST DWeb Vancouver Webring</h2>
+			>li {
+				--levitate: 0;
+				padding: 1.2rem 2rem;
+				background-color: pink;
+				position: relative;
+				transform-style: preserve-3d;
+				cursor: pointer;
+				position: relative;
+				transition: transform 0.3s;
 
-        <p>Resources related to this webring / community search engine project.</p>
+				&::after {
+					content: '';
+					pointer-events: none;
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					opacity: 0;
+					transition: opacity 0.3s;
+					z-index: 1;
+					mix-blend-mode: overlay;
+					background-image: linear-gradient(to left, #ffe4b2, #c8b188);
+				}
 
-        <ul>
-            <li><a href="https://github.com/DWebYVR/localhost_vancouver_webring">DWebYVR/localhost_vancouver_webring</a>: Github repo that has the source for this website and issue queue for collaboration</li>
-            <li><a href="https://railway.app/project/48f33357-6f0c-4826-8914-61a7910a16b3">Public Railway Project</a>: hosted on <a href="https://railway.app/">Railway</a></li>
-            <li><a href="https://cblgh.org/lieu/">Lieu</a>: open source community search engine</li>
-        </ul>
+				&:hover {
+					--levitate: 1;
 
-        <footer>
+					&::before {
+						transform: translate3d(6rem, 1rem, -1px) scale(calc(1 - var(--levitate) * 0.1)) rotate(1.5deg);
+						filter: blur(8px);
+					}
 
-        </footer>
-    </body>
+					&::after {
+						opacity: 0.6;
+					}
+				}
+
+				&.big {
+					background-color: lightgreen;
+					padding: 1.6rem 2rem;
+					padding-bottom: 3rem;
+				}
+
+				ul {
+					margin-top: 0.5em;
+					margin-left: 1em;
+					font-size: 0.8em;
+
+					li {
+						z-index: 1;
+
+						&:first-letter {
+							font-size: 1.4em;
+						}
+					}
+				}
+
+				&:not(:first-of-type) {
+					margin-top: 3rem;
+				}
+
+				&:nth-child(3n) {
+					transform: translate3d(-5px, calc(var(--levitate) * -5px), calc(var(--levitate) * 3rem)) rotate(-0.6deg) rotateX(calc(var(--levitate) * 6deg)) rotateY(calc(var(--levitate) * -3deg));
+				}
+
+				&:nth-child(3n-1) {
+					transform: translate3d(7px, calc(var(--levitate) * -5px), calc(var(--levitate) * 3rem)) rotate(-0.5deg) rotateX(calc(var(--levitate) * 6deg)) rotateY(calc(var(--levitate) * -3deg));
+				}
+
+				&:nth-child(3n-2) {
+					transform: translate3d(0px, calc(var(--levitate) * -5px), calc(var(--levitate) * 3rem)) rotate(0.5deg) rotateX(calc(var(--levitate) * 6deg)) rotateY(calc(var(--levitate) * -3deg));
+				}
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					transition: all 0.3s;
+					height: calc(100% - 2px);
+					background-color: rgba(0, 0, 0, 0.4);
+					z-index: -1;
+					transform-origin: bottom left;
+					transform: translate3d(8px, 2px, -1px) rotate(1deg);
+					filter: blur(2px);
+				}
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>LOCALHOST DWeb Vancouver Webring</h1>
+
+	<p>This is a webring that powers a community search engine powered by <a href="https://cblgh.org/lieu/">Lieu</a>.
+		Visit the <a href="https://github.com/DWebYVR/localhost_vancouver_webring">repo</a> to add yourself to this
+		page.</p>
+
+	<h2>Search</h2>
+
+	<form method="GET" action="https://search.dwebvancouver.org">
+		<p style="margin-bottom: 10px;"><input type="search" minlength="1" required="" name="q"
+				placeholder="Your search query here" id="search" size="50"></p>
+		<button type="submit" style="padding: 2px 10px">Search the Vancouver Community</button>
+	</form>
+
+	<h2>DWeb Vancouver Resources</h2>
+
+
+	<ul>
+		<li><a href="https://dwebyvr.org">DWebYVR Wiki</a>: main website for DWebYVR. Public MediaWiki install.</li>
+		<li><a href="https://writing.dwebyvr.org">DWebYVR Blog</a>: blog and email newsletter, Ghost-powered. Several
+			subsites</li>
+		<li><a href="https://writing.dwebyvr.org/localhost/">LOCALHOST Vancouver</a>: week-long set of local events
+			alongside IETF120</li>
+		<li><a href="https://lu.ma/dwebyvr">DWebYVR Calendar</a>: Luma-powered calendar for events</li>
+
+	</ul>
+
+	<h2>DWeb Vancouver Members</h2>
+	<ul>
+		<li><a href="https://bmannconsulting.com">Boris Mann</a>: personal blog and digital garden</li>
+		<li><a href="https://github.com/daffl">David Luecke @ Github</a>
+			<ul>
+				<li><a href="https://feathersjs.com/">FeathersJS</a>: open source API and Real-time
+					Application Framework</li>
+				<li><a href="https://feathers.cloud/">Feathers Cloud</a>: commercial hosting for FeathersJS</li>
+
+			</ul>
+		</li>
+		<li><a href="https://www.nicktsan.com/">Nicholas Tsang</a>: personal portfolio website and blog.
+			<ul>
+				<li><a href="https://github.com/nicktsan">Nicholas' Github profile.</a></li>
+			</ul>
+		</li>
+		<li><a href="https://www.kriskrug.co">Kris Krüg</a>: personal website and blog.
+			<ul>
+				<li><a href="https://www.futureproofcreatives.com">KK's AI workshops & trainings.</a></li>
+			</ul>
+		</li>
+		<li><a href="https://grahamfleming.com">Graham Fleming</a>: personal website and links</li>
+	</ul>
+
+	<h2>Vancouver Community</h2>
+
+	<ul>
+		<li><a href="https://lu.ma/vancouver">Luma Vancouver Calendar</a>: aggregate calendar of events in Vancouver
+		</li>
+		<li><a href="https://z-space.ca">Z-Space</a>: a shared studio space at 505 Hamilton managed by the Z-Space Arts
+			and Technology Society</li>
+		<li><a href="https://lu.ma/future-proof?tag=ai%20meetup">Vancouver AI Community Meetups calendar.</a></li>
+
+	</ul>
+
+	<h1>Projects</h1>
+
+	<h2>LOCALHOST DWeb Vancouver Webring</h2>
+
+	<p>Resources related to this webring / community search engine project.</p>
+
+	<ul>
+		<li><a href="https://github.com/DWebYVR/localhost_vancouver_webring">DWebYVR/localhost_vancouver_webring</a>:
+			Github repo that has the source for this website and issue queue for collaboration</li>
+		<li><a href="https://railway.app/project/48f33357-6f0c-4826-8914-61a7910a16b3">Public Railway Project</a>:
+			hosted on <a href="https://railway.app/">Railway</a></li>
+		<li><a href="https://cblgh.org/lieu/">Lieu</a>: open source community search engine</li>
+	</ul>
+
+	<footer>
+
+	</footer>
+</body>
+
 </html>
